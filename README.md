@@ -47,14 +47,14 @@ Each published spec version is tagged in Git (e.g., `v1`, `v2`). Approved specif
 * Kebab-case, lowercase filenames are recommended: `on-init.uhkm`, `doubletap-caps-word.uhkm`.
 * Event macros should use the event name without the `$` prefix: `$onInit` → `on-init.uhkm`.
 * The filename does not determine macro identity — the `@uhkm-name` pragma is authoritative.
-* Including the filename as a comment on the first line (e.g., `// on-init.uhkm`) is recommended for context when the macro is viewed outside its original file.
+* The first line of the file must be a comment containing the filename (e.g., `// on-init.uhkm`). This allows the filename to be inferred when the macro is viewed outside its original file context.
 
 ### Formatting
 
 * **Comments**: `//` to end-of-line, matching UHK Smart Macro syntax.
 * **Indentation**: Not prescribed. The UHK parser is indentation-agnostic.
 * **Trailing whitespace**: Should be stripped.
-* **Block braces**: `{ }` must be followed by newlines per UHK Smart Macro rules.
+* **Block braces**: Use Stroustrup-style braces — opening `{` at the end of a line, closing `}` on its own line, and each subsequent block statement (`else`, `else if`, etc.) on a new line. `} else {` on a single line is not valid. Short-hand conditionals without braces (e.g., `ifShift suppressMods write 4`) are exempt. See [Control Flow](https://github.com/UltimateHackingKeyboard/firmware/blob/master/doc-dev/user-guide.md#control-flow) in the official docs for more on this.
 
 ## Preamble Pragmas
 
@@ -79,6 +79,7 @@ The preamble is a block of `// @`-prefixed pragma lines at the top of the file, 
 | `@uhkm-description` | No | Single-line summary. UHKM-only metadata — UHK Agent has no description field. |
 | `@uhkm-firmware` | No | Firmware version constraint (e.g., `>=16.0.0`, `>=16.0.0 <17.0.0`). Operators: `>=`, `<=`, `>`, `<`, `=`. |
 | `@uhkm-author` | No | Author identity in `Name <email>` format where email is optional. |
+| `@uhkm-license` | No | SPDX license identifier (e.g., `MIT`, `Apache-2.0`, `Unlicense`). UHKM-only metadata. |
 | `@uhkm-spec` | No | UHKM spec version (defaults to `1` if omitted). |
 
 **Macro naming details:**
@@ -97,6 +98,7 @@ A macro that briefly displays "UHK" on the LED display:
 // led-flash.uhkm
 // @uhkm-name: LED Text Flash UHK
 // @uhkm-description: Briefly display UHK on the LED display
+// @uhkm-license: MIT
 // @uhkm-version: 1.0.0
 
 setLedTxt 1000 "UHK"
@@ -111,6 +113,7 @@ A macro that types "uhkm" five times using a loop:
 // repeat.uhkm
 // @uhkm-name: Repeat UHKM
 // @uhkm-description: Type the word uhkm five times
+// @uhkm-license: MIT
 // @uhkm-version: 1.0.0
 
 setVar count 5
@@ -133,5 +136,6 @@ This specification is released under the MIT License.
 
 ## Change Log
 
+* **2026-02-18** — Added `@uhkm-license` pragma, block brace formatting rules, and filename requirement.
 * **2026-02-17** — Simplified spec structure.
 * **2026-02-16** — Initial draft.
