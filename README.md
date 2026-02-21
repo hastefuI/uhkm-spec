@@ -31,7 +31,7 @@ UHKM does not replace UHK firmware, UHK Agent, or the Smart Macro language itsel
 
 ### Motivation
 
-Today, macros are tightly coupled to UHK device configuration. As macros are shared more broadly, a standalone format becomes valuable for standardized sharing, independent organization, offline validation, and ecosystem tooling — all without changing the underlying Smart Macro syntax.
+At time of writing, UHK macros remain tightly coupled to the UHK device configuration. As macros are shared more widely, a standalone format offers clear benefits: standardized distribution, independent organization, offline validation decoupled from the agent, and broader ecosystem tooling, all while preserving the underlying Smart Macro syntax.
 
 ## Design Philosophy
 
@@ -80,6 +80,7 @@ The preamble is a block of `// @`-prefixed pragma lines at the top of the file, 
 | `@uhkm-firmware` | No | Firmware version constraint (e.g., `>=16.0.0`, `>=16.0.0 <17.0.0`). Operators: `>=`, `<=`, `>`, `<`, `=`. |
 | `@uhkm-author` | No | Author identity in `Name <email>` format where email is optional. |
 | `@uhkm-license` | No | SPDX license identifier (e.g., `MIT`, `Apache-2.0`, `Unlicense`). UHKM-only metadata. |
+| `@uhkm-os` | No | Target operating system (e.g., `linux`, `macos`, `windows`). Indicates OS-specific behavior such as shortcuts or key mappings. |
 | `@uhkm-spec` | No | UHKM spec version (defaults to `1` if omitted). |
 
 **Macro naming details:**
@@ -136,6 +137,7 @@ This specification is released under the MIT License.
 
 ## Change Log
 
+* **2026-02-20** — Added `@uhkm-os` pragma.
 * **2026-02-18** — Added `@uhkm-license` pragma, block brace formatting rules, and filename requirement.
 * **2026-02-17** — Simplified spec structure.
 * **2026-02-16** — Initial draft.
