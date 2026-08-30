@@ -1,4 +1,4 @@
-# UHKM Specification, Version 1 (Draft)
+# UHKM Specification, Version 1 (Draft) [![Spec](https://img.shields.io/badge/Spec-v1%20Draft-orange)](https://github.com/hastefuI/uhkm-spec/releases) [![Firmware](https://img.shields.io/badge/UHK%20Firmware-%E2%89%A516.1.1-informational)](https://github.com/UltimateHackingKeyboard/firmware/releases/tag/v16.1.1) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/hastefuI/uhkm-spec/blob/main/LICENSE)
 
 ## Table of Contents
 
