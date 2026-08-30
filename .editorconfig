@@ -1,0 +1,28 @@
+# EditorConfig: https://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# UHKM files are UTF-8 without BOM and carry no trailing whitespace.
+# Indentation is deliberately unset: the spec does not prescribe it, because the
+# UHK parser is indentation-agnostic.
+[*.uhkm]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[Makefile]
+indent_style = tab
+
+[*.{yml,yaml,json,jsonc}]
+indent_size = 2
+
+[LICENSE]
+insert_final_newline = true
